@@ -37,3 +37,11 @@ jobs:
       - name: Build, test unitari e test di integrazione
         run: |
           mvn -X clean verify
+      - name: Salva risultati dei test
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: risultati-test
+          path: |
+            target/surefire-reports/
+            target/failsafe-reports/
