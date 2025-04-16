@@ -15,7 +15,7 @@ public class BookService {
     public Book viewBookDetails(String isbn){
         return bookRepository.findByIsbn(isbn)
                 .orElseThrow(
-                        ()-> new RuntimeException(isbn)
+                        ()-> new BookNotFoundException(isbn)
                 );
     }
 
